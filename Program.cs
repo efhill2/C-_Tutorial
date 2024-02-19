@@ -25,8 +25,11 @@
 
 //CTutorial.Program.ifStatements();
 
-CTutorial.Program.oddOrEven();
+//CTutorial.Program.oddOrEven();
 
+//CTutorial.Program.nestedIfStatements();
+
+CTutorial.Program.userLoginExample();
 
 namespace CTutorial
 {
@@ -36,6 +39,7 @@ namespace CTutorial
         public static void writeSomething()
         {
             Console.WriteLine("Let's see if this works");
+            Console.Read();
         }
 
         public static void writeSomethingSpecific(string myText)
@@ -256,6 +260,56 @@ namespace CTutorial
             Console.ReadLine();
         }
 
+        public static void nestedIfStatements()
+        {
+            int number;
+            Console.WriteLine("Please Enter a number");
+            bool stringNumber = int.TryParse(Console.ReadLine(), out number);
+
+
+
+            if (number % 3 == 0)
+            {
+                Console.WriteLine("The number is equal to " + number + ", Divisible by 3");
+            }
+            else if (number % 7 == 0)
+            {
+                Console.WriteLine("The number is equal to " + number + ", Divisible by 7");
+            }
+            else if (number % 2 != 0)
+            {
+                Console.WriteLine("The number is equal to " + number + ", Odd number");
+            }
+            else
+            {
+                Console.WriteLine("The number is equal to " + number + ", Even number");
+            }
+            
+            Console.Read();
+        }
+
+        public static void userLoginExample()
+        {
+            string userName = "Eugene";
+            string password = "EFHill35";
+
+            Console.WriteLine("Please enter your User Name");
+            userName = Console.ReadLine();
+
+            Console.WriteLine("Please enter your Password");
+            password = Console.ReadLine();
+
+            if (userName.Equals("Eugene") && password.Equals("EFHill35"))
+            {
+                Console.WriteLine("Welcome Back");
+            }
+            else
+            {
+                Console.WriteLine("Error: Wrong Infomation");
+            }
+            Console.Read();
+
+        }
     }
 }
 
