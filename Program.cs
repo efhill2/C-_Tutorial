@@ -1,71 +1,70 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-//CTutorial.Program.writeSomething();
-//CTutorial.Program.writeSomethingSpecific("I am an argument and Im called from a method");
+// CTutorial.Program.writeSomething();
 
-//Console.WriteLine(CTutorial.Program.add(15, 31));
-//Console.WriteLine(CTutorial.Program.add(CTutorial.Program.add(1,2), CTutorial.Program.add(3, 4)));
+// CTutorial.Program.writeSomethingSpecific("I am an argument and Im called from a method");
 
-//Console.WriteLine(CTutorial.Program.multiply(15, 30));
+// CTutorial.Program.heyFriends("Jasmine", "Steven", "Kenny", "Mercedes");
 
-//Console.WriteLine(CTutorial.Program.divide(1988, 34));
+// CTutorial.Program.lowUpper("HeY ThErE !");
 
-//CTutorial.Program.heyFriends("Jasmine", "Kenny", "Mercedes");
+// CTutorial.Program.userInput();
+// Console.WriteLine($"Equals {CTutorial.Program.calculate()}");
+// Console.Read();
 
-//CTutorial.Program.lowUpper("HeY ThErE !");
+// CTutorial.Program.tryCatchExample();
 
-//CTutorial.Program.userInput();
+// CTutorial.Program.tryParseExample();
 
-//Console.WriteLine($"Equals {CTutorial.Program.calculate()}");
-//Console.Read();
+// CTutorial.Program.tryParseExample2();
 
-//CTutorial.Program.tryCatchExample();
+// CTutorial.Program.tempertureGuage();
 
-//CTutorial.Program.tryParseExample2();
+// CTutorial.Program.guessingGame();
 
-//CTutorial.Program.ifStatements();
+// CTutorial.Program.doYouNeedParentSupervision();
 
-//CTutorial.Program.oddOrEven();
+// CTutorial.Program.calenderMonths();
 
-//CTutorial.Program.nestedIfStatements();
+// CTutorial.Program.oddOrEven();
 
-CTutorial.Program.userLoginExample();
+// CTutorial.Program.nestedIfStatements();
+
+// CTutorial.Program.userLoginExample();
+
+// CTutorial.Program.calculateAverage();
+
+// CTutorial.Program.incrementing();
 
 namespace CTutorial
 {
     class Program
     {
-        //Access Modifier (static), Return Type, Method Name (param 1, param 2)
+        //Public Method, Access Modifier (static), Return Type (void), Method Name ()
+        //Simple Method that outputs a string 
         public static void writeSomething()
         {
             Console.WriteLine("Let's see if this works");
             Console.Read();
         }
-
+        //Showing how to call an arrgument
         public static void writeSomethingSpecific(string myText)
         {
             Console.WriteLine(myText);
         }
 
-        public static int add(int num1, int num2)
+        //A method showing the different types of string manipulation
+        public static void heyFriends(string name1, string name2, string name3, string name4)
         {
-            return num1 + num2;
-        }
+            //String Concatination
+            Console.WriteLine("Hey " + name1 + ", " + name2 + ", " + name3 + " , and " + name4 + ", How's life?");
+            //String Interpolation
+            Console.WriteLine($"Hey {name1}, {name2}, {name3} , and {name4}, How's Life?");
+            //String Formatting 
+            Console.WriteLine("Hey {0}, {1}, {2}, and {3}, How's life?", name1, name2, name3, name4);
 
-        public static int multiply(int num1, int num2)
-        {
-            return num1 * num2;
-
-        }
-
-        public static double divide(double num1, double num2)
-        {
-            return num1 / num2;
-        }
-
-        public static void heyFriends(string name1, string name2, string name3)
-        {
-            Console.WriteLine("Hey " + name1 + ", " + name2 + ", and " + name3 + ", How's life?");
+            string randomWords = "This is a \"string\" with a \\ and a colon: ";
+            Console.WriteLine(randomWords);
         }
 
         //public static void lowUpper(string s)
@@ -140,6 +139,31 @@ namespace CTutorial
             Console.ReadKey();
         }
 
+        public static void tryParseExample()
+        {
+            Console.WriteLine("Give me a number");
+
+            string inputString = Console.ReadLine();
+            int num1;
+
+            bool isNumber = int.TryParse(inputString, out num1);
+
+            if(isNumber)
+            {
+                Console.WriteLine("Correct input entered!");
+            }
+            else
+            {
+                Console.WriteLine("Wrong input entered!");
+            }
+
+            num1++;
+
+            Console.WriteLine("User entered number + 1" , num1);
+
+            Console.ReadKey();
+        }
+
         public static void tryParseExample2()
         {
             string numberAsString = "0304";
@@ -194,7 +218,7 @@ namespace CTutorial
 
         }
 
-        public static void ifStatements()
+        public static void tempertureGuage()
         {
             Console.WriteLine("Please enter the temperture.");
             string userInput = Console.ReadLine();
@@ -229,6 +253,161 @@ namespace CTutorial
             Console.Read();
         }
 
+        public static void guessingGame()
+        {
+            // Creating an instance of Random Class
+            Random random = new Random();
+            // Create a random number from 1 - 10
+            int randomNumber = random.Next(1, 11);
+            Console.WriteLine("Number Matching Game");
+            Console.WriteLine("Enter a number between 1 and 10");
+            string userNumberGuess = Console.ReadLine(); 
+            int number;
+
+            bool isNumber = int.TryParse(userNumberGuess, out number);
+
+            if(isNumber)
+            {
+                if(randomNumber == int.Parse(userNumberGuess))
+                {
+                    Console.WriteLine($"Correct, You're Lucky. The numbers were: {randomNumber} and {userNumberGuess}");
+
+                    Console.WriteLine("Please enter your age");
+                    int age = int.Parse(Console.ReadLine());    
+                    
+                    if(age >=21)
+                    {
+                        Console.WriteLine("Congrats, sending a Drink package your way!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Congrats, sending a Snack package your way!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Wrong, Luck is not on your side! The numbers were: {randomNumber} and {userNumberGuess}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Wrong Input!");
+            }
+
+           
+            Console.ReadKey();
+
+        }    
+
+        public static void doYouNeedParentSupervision()
+        {
+            Console.WriteLine("A party for your town has arrived and everyone is invited");
+            Console.WriteLine("First: Enter your age");
+            int age = int.Parse(Console.ReadLine());
+
+            if(age >= 21)
+            {
+                Console.WriteLine("Adult Drinking Ticket");
+            }
+            else if(age >=18 && age <= 20)
+            {
+                Console.WriteLine("Adult Nondrinking Ticket");
+            }
+            else if(age <=17)
+            {
+                Console.WriteLine("Are you with your parents? Answer with \"Yes\" or \"No\"");
+                string withParents = Console.ReadLine();
+                
+                if(withParents == "Yes")
+                {
+                    Console.WriteLine("Youth Ticket with Parents");
+                }
+                else
+                {
+                    Console.WriteLine("You need to have your parents with you!");
+                }
+            }
+        }
+
+        public static void calenderMonths()
+        {
+            Console.WriteLine("Number of the Months");
+            int month = int.Parse(Console.ReadLine());
+            string monthName;
+
+            // if(month == 1)
+            //     monthName = "January";
+            // else if(month == 2)
+            //     monthName = "February";
+            // else if(month == 3)
+            //     monthName = "March";
+            // else if(month == 4)
+            //     monthName = "April";
+            // else if(month == 5)
+            //     monthName = "May";
+            // else if(month == 6)
+            //     monthName = "June";
+            // else if(month == 7)
+            //     monthName = "July";
+            // else if(month == 8)
+            //     monthName = "August";
+            // else if(month == 9)
+            //     monthName = "September";
+            // else if(month == 10)
+            //     monthName = "October";
+            // else if(month == 11)
+            //     monthName = "November";
+            // else if(month == 12)
+            //     monthName = "December";
+            // else
+            //     monthName = "Unknown";
+
+            switch(month)
+            {
+                case 1:
+                    monthName = "January";
+                    break;
+                 case 2:
+                    monthName = "February";
+                    break;
+                 case 3:
+                    monthName = "March";
+                    break;
+                 case 4:
+                    monthName = "April";
+                    break;
+                 case 5:
+                    monthName = "May";
+                    break;
+                 case 6:
+                    monthName = "June";
+                    break;
+                 case 7:
+                    monthName = "July";
+                    break;
+                 case 8:
+                    monthName = "August";
+                    break;
+                 case 9:
+                    monthName = "September";
+                    break;
+                 case 10:
+                    monthName = "October";
+                    break;
+                 case 11:
+                    monthName = "November";
+                    break;
+                 case 12:
+                    monthName = "December";
+                    break;
+                default:
+                    monthName = "Unknown";
+                    break;
+            }
+
+            Console.WriteLine($"The month is {monthName}");
+
+        }
         public static void oddOrEven()
         {
             Console.WriteLine("Please enter a number.");
@@ -308,6 +487,59 @@ namespace CTutorial
                 Console.WriteLine("Error: Wrong Infomation");
             }
             Console.Read();
+
+        }
+
+        public static void calculateAverage()
+        {
+            int num1 = 10;
+            int num2 = 20;
+            int num3 = 30;
+
+            int average = (num1 + num2 + num3) / 3;
+            Console.WriteLine("The average is: " + average);
+        }
+
+        public static void incrementing()
+        {
+            /*
+            int num = 0; 
+
+            Console.WriteLine($"Number is {num}");
+            // incrementing of int
+            num++;
+            Console.WriteLine($"Number is {num}");
+
+            // Pre Incrementing 
+            Console.WriteLine("Num is {0}", ++num);
+            Console.WriteLine("Num is {0}", num++);
+            Console.WriteLine("Num is {0}", num);
+
+            // decrementing
+            num--;
+            Console.WriteLine("Num is {0}", num);
+            Console.WriteLine("Num is {0}", --num);
+            Console.WriteLine("Num is {0}", num--);
+            Console.WriteLine("Num is {0}", num);
+
+            num += 30;
+            Console.WriteLine("Num is {0}", num);
+            num -= 10; 
+            Console.WriteLine("Num is {0}", num);
+            num *= 10;
+            Console.WriteLine("Num is {0}", num);
+            num /= 20;
+            Console.WriteLine("Num is {0}", num);
+            */
+
+            int num1 = 10; 
+            int num2 = 3; 
+
+            int result = num1%num2; 
+
+            Console.WriteLine(result);
+
+            Console.ReadLine();
 
         }
     }
